@@ -2,6 +2,7 @@ package com.mohamed.postrequestfromdata
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun register() {
-
+        imageData?: return
         val queue = Volley.newRequestQueue(this)
 
         val url = "https://api.est3lamy.com/api/User/Register"
@@ -121,9 +122,9 @@ class MainActivity : AppCompatActivity() {
             // form-date  >>>> POST - [ Key | value ]
             override fun getParams(): MutableMap<String?, String?> {
                 val params: MutableMap<String?, String?> = HashMap()
-                params["fullName"] = "test volley2"
-                params["email"] = "testvolley2@yahoo.com"
-                params["phoneNumber"] = "017777777882"
+                params["fullName"] = "test volley5"
+                params["email"] = "testvolley5@yahoo.com"
+                params["phoneNumber"] = "01755555555"
                 params["cashNumber"] = "01280160444"
                 params["city"] = "Gharbia"
                 params["education"] = "Bachelor"
@@ -154,11 +155,11 @@ class MainActivity : AppCompatActivity() {
 
             override fun getByteData(): MutableMap<String, FileDataPart> {
                 val params = HashMap<String, FileDataPart>()
-                params["profileImage"] = FileDataPart("image", imageData!!, "jpeg")
-                params["nationalIdFront"] = FileDataPart("image", imageData!!, "jpeg")
-                params["nationalIdBack"] = FileDataPart("image", imageData!!, "jpeg")
-                params["criminalFish"] = FileDataPart("image", imageData!!, "jpeg")
-                params["academicQualification"] = FileDataPart("image", imageData!!, "jpeg")
+                params["profileImage"] = FileDataPart("profileImage", imageData!!, "png")
+                params["nationalIdFront"] = FileDataPart("nationalIdFront", imageData!!, "png")
+                params["nationalIdBack"] = FileDataPart("nationalIdBack", imageData!!, "png")
+                params["criminalFish"] = FileDataPart("criminalFish", imageData!!, "png")
+                params["academicQualification"] = FileDataPart("academicQualification", imageData!!, "png")
                 return params
             }
 
